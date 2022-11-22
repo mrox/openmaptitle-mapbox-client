@@ -9,19 +9,19 @@
   "sources": {
     "openmaptiles": {
       "type": "vector",
-      "url": "http://192.168.1.32:8080/data/vntiles.json"
+      "url": "http://100.90.247.36:8080/data/vntiles.json"
     },
     "vntitles": {
       "type": "vector",
-      "url": "http://192.168.1.32:8080/data/openmaptiles.json"
+      "url": "http://100.90.247.36:8080/data/openmaptiles.json"
     },
     "attribution": {
       "attribution": "<a href=\"https://www.openmaptiles.org/\" target=\"_blank\">&copy; OpenMapTiles</a> <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\">&copy; OpenStreetMap contributors</a>",
       "type": "vector"
     }
   },
-  "glyphs": "http://192.168.1.32:8080/fonts/{fontstack}/{range}.pbf",
-  "sprite": "http://192.168.1.32:8080/styles/OSM OpenMapTiles/sprite",
+  "glyphs": "http://100.90.247.36:8080/fonts/{fontstack}/{range}.pbf",
+  "sprite": "http://100.90.247.36:8080/styles/OSM OpenMapTiles/sprite",
   "layers": [
     {
       "id": "background",

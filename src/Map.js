@@ -11,10 +11,7 @@ import Police from './police.json'
 import './Map.css';
 import Style from "./style.json"
 
-mapboxgl.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA';
-
-// source: Natural Earth http://www.naturalearthdata.com/ via geojson.xyz
-const AIR_PORTS = 'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_10m_airports.geojson';
+// mapboxgl.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA';
 
 function onObjectChanged(e) {
   let model = e.detail.object; //here's the object already modified
