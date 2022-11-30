@@ -28,6 +28,7 @@ const StyledRow = styled.div`
 const Controls = ({
     onChangeShowOCP,
     onChangeShowBus,
+    onChangeShowOCPSecurity,
     isLoading
 }) => {
 
@@ -39,7 +40,7 @@ const Controls = ({
                 }}
                     type="checkbox" id="ocpbuilding" defaultChecked={true}
                 />
-                <label htmlFor="ocpbuilding"> Show OCP building 3D </label>
+                <label htmlFor="ocpbuilding"> OCP building 3D </label>
             </StyledRow>
             <StyledRow>
                 <input onChange={(e) => {
@@ -47,7 +48,15 @@ const Controls = ({
                 }}
                     type="checkbox" id="ocpbus" defaultChecked={true}
                 />
-                <label htmlFor="ocpbus"> Show OCP Bus 3D </label>
+                <label htmlFor="ocpbus"> OCP Bus 3D </label>
+            </StyledRow>
+            <StyledRow>
+                <input onChange={(e) => {
+                    onChangeShowOCPSecurity(e.target.checked)
+                }}
+                    type="checkbox" id="ocpsecurity" defaultChecked={true}
+                />
+                <label htmlFor="ocpsecurity"> OCP Security 3D </label>
             </StyledRow>
 
         </Container >

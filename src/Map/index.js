@@ -10,8 +10,11 @@ const Map = ({ children }) => {
   const mapContainerRef = useRef(null);
   const [map, setMap] = useState(null);
 
-  const [lng, setLng] = useState(105.942125);
-  const [lat, setLat] = useState(20.988521);
+
+  // const [lng, setLng] = useState(-87.618312);
+  // const [lat, setLat] = useState(41.866282);
+  const [lng, setLng] = useState(105.94483690768);
+  const [lat, setLat] = useState(20.98849176347);
   const [zoom, setZoom] = useState(16);
 
   useEffect(() => {
@@ -35,7 +38,6 @@ const Map = ({ children }) => {
         multiLayer: true,
       });
     newMap.on("load", () => {
-
       setMap(newMap);
     });
 
