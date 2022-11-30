@@ -51,6 +51,7 @@ function OCPBus({ show }) {
                         });
 
                     })
+                    map.tb.setLayerZoomRange(layerId, 15, 24)
                 },
                 render: function (gl, matrix) {
                     map.tb.update();

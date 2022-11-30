@@ -37,6 +37,7 @@ const Map = ({ children }) => {
         // enableHelpTooltips: true,
         multiLayer: true,
       });
+
     newMap.on("load", () => {
       setMap(newMap);
     });

@@ -23,7 +23,6 @@ function OCPBuilding({ show }) {
                 type: "custom",
                 renderingMode: "3d",
                 onAdd: function (map, mbxContext) {
-
                     for (const v of ListBuilding) {
                         let building = {
                             obj: `ocp/${v.name}.glb`,
@@ -38,6 +37,7 @@ function OCPBuilding({ show }) {
                             model.setCoords(v.location.reverse());
                             map.tb.add(model, layerId);
                         });
+                        map.tb.setLayerZoomRange(layerId, 15, 24)
                     }
                 },
                 render: function (gl, matrix) {

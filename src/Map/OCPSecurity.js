@@ -28,6 +28,7 @@ function OCPSecurity({ show }) {
                 type: "custom",
                 renderingMode: "3d",
                 onAdd: function (map, mbxContext) {
+
                     let options = {
                         obj: "models/policeman.glb",
                         type: 'gltf',
@@ -44,6 +45,7 @@ function OCPSecurity({ show }) {
                         model.playAnimation({ animation: 1, duration: 10000000000000000 });
                         flp(model, PoliceData[0])
                     });
+                    map.tb.setLayerZoomRange(layerId, 15, 24)
                 },
                 render: function (gl, matrix) {
                     map.tb.update();

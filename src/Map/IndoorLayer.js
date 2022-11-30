@@ -33,6 +33,7 @@ function IndoorLayer({ show }) {
             'id': layerId,
             'type': 'fill-extrusion',
             'source': 'floorplan',
+            "minzoom": 14,
             'paint': {
                 // Get the `fill-extrusion-color` from the source `color` property.
                 'fill-extrusion-color': ['get', 'color'],
@@ -44,7 +45,7 @@ function IndoorLayer({ show }) {
                 'fill-extrusion-base': ['get', 'base_height'],
 
                 // Make extrusions slightly opaque to see through indoor walls.
-                'fill-extrusion-opacity': 0.5
+                'fill-extrusion-opacity': 0.9
             }
         });
     }, [map])

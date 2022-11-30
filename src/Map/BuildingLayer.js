@@ -21,6 +21,7 @@ function BuildingLayer({ show }) {
                 "source": "vntitles",
                 "source-layer": "building",
                 "filter": ["all"],
+                "minzoom": 14,
                 "paint": {
                     // 'fill-extrusion-pattern': 'wall',
                     "fill-extrusion-base": {
