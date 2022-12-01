@@ -1,34 +1,88 @@
-import React, { useState } from 'react';
-import Map from './Map';
-import BuildingLayer from './Map/BuildingLayer'
-import Controls from './Map/Control';
-import OCPBuilding from './Map/OCPBuilding';
-import OCPBus from './Map/OCPBus';
-import OCPSecurity from './Map/OCPSecurity';
-import IndoorLayer from './Map/IndoorLayer'
+import React from "react";
+import { Routes, Route, Outlet, NavLink as BaseNavLink } from "react-router-dom";
+import Map from "./pages/Map";
+import styled from "styled-components";
+import MapEditor from "./pages/MapEditor";
+
+
 
 function App() {
-  // const [isLoading, setIsLoading] = useState(false)
-  const [showOCPBuilding, setShowOCPBuilding] = useState(true)
-  const [showOCPBus, setShowOCPBus] = useState(true)
-  const [showOCPSecurity, setShowOCPSecurity] = useState(true)
+
+
 
   return (
     <div>
-      <Map>
-        {/* <BuildingLayer /> */}
-        <Controls
-          onChangeShowOCP={setShowOCPBuilding}
-          onChangeShowBus={setShowOCPBus}
-          onChangeShowOCPSecurity={setShowOCPSecurity}
-        />
-        <OCPSecurity show={showOCPSecurity} />
-        <OCPBuilding show={showOCPBuilding} />
-        <OCPBus show={showOCPBus} />
-        <IndoorLayer />
-      </Map>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Map />} />
+          <Route path="/editor" element={<MapEditor />} />
+        </Route>
+
+      </Routes>
     </div>
   );
 }
+
+
+function Layout() {
+  return (
+    <Body>
+      <Nav>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/editor">Editor</NavLink>
+      </Nav>
+      <Container >
+        <Outlet />
+      </Container>
+    </Body>
+  );
+}
+const NavLink = React.forwardRef(
+  ({ activeClassName, activeStyle, ...props }, ref) => {
+    return (
+      <BaseNavLink
+        ref={ref}
+        {...props}
+        className={({ isActive }) =>
+          [
+            props.className,
+            isActive ? activeClassName : null,
+          ]
+            .filter(Boolean)
+            .join(" ")
+        }
+        style={({ isActive }) => ({
+          ...props.style,
+          ...{ padding: "8px 18px", borderRadius: 4 },
+          ...(isActive ? { color: "blue", background: "lightGray" } : null),
+        })}
+      />
+    );
+  }
+);
+
+const Body = styled.div`
+  display: flex ;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+`
+const Nav = styled.div`
+  display: flex ;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+  /* justify-content: end; */
+  align-items: center;
+  height: 40px;
+  padding: 8px 8px 8px 16px;
+  font-weight: 500;
+`
+const Container = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+`
+
 
 export default App;

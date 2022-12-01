@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import MapContext from './MapContext';
 import './Map.css';
-import Style from "../style.json"
+import Style from "../../style.json"
 import { Threebox } from "threebox-plugin";
 
 
@@ -51,7 +51,7 @@ const Map = ({ children }) => {
 
 
     // Clean up on unmount
-    return () => map.remove();
+    return () => newMap.remove();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const containerBounds = mapContainerRef.current?.getBoundingClientRect();

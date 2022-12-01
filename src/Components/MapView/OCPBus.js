@@ -1,10 +1,11 @@
 import MapContext from "./MapContext";
 import React, { useContext, useEffect } from 'react';
-import PoliceData from '../police.json'
+import Bus from './bus.json'
 
-function OCPSecurity({ show }) {
+function OCPBus({ show }) {
     const { map } = useContext(MapContext)
-    const layerId = "OCPSecurity";
+    const layerId = "OCPBus";
+
 
     useEffect(() => {
         if (!map) return;
@@ -20,9 +21,10 @@ function OCPSecurity({ show }) {
             if (mapLayer) {
                 map.setLayoutProperty(layerId, 'visibility', 'visible')
                 map.tb.setLayoutProperty(layerId, 'visibility', 'visible')
-                console.log(`show layer security`);
+
                 return
             }
+
             map.addLayer({
                 id: layerId,
                 type: "custom",
@@ -30,21 +32,25 @@ function OCPSecurity({ show }) {
                 onAdd: function (map, mbxContext) {
 
                     let options = {
-                        obj: "models/policeman.glb",
-                        type: 'gltf',
-                        scale: 8,
-                        units: 'meters',
+                        type: "fbx",
+                        obj: "vehicles/bus.fbx",
+                        scale: 0.02,
+                        units: "meters",
+                        anchor: 'center',
+                        adjustment: { x: 0, y: 0, z: 0 },
                         rotation: { x: 90, y: 180, z: 0 },
-                        anchor: 'center'//default rotation
-
                     };
 
                     map.tb.loadObj(options, function (model) {
-                        model.setCoords(PoliceData[0].path[0]);
-                        map.tb.add(model, layerId);
-                        model.playAnimation({ animation: 1, duration: 10000000000000000 });
-                        flp(model, PoliceData[0])
-                    });
+
+                        Bus.forEach(b => {
+                            const a = model.duplicate()
+                            a.setCoords(b.path[0]);
+                            map.tb.add(a, layerId);
+                            flp(a, b)
+                        });
+
+                    })
                     map.tb.setLayerZoomRange(layerId, 15, 24)
                 },
                 render: function (gl, matrix) {
@@ -56,10 +62,9 @@ function OCPSecurity({ show }) {
             map.tb.setLayoutProperty(layerId, 'visibility', 'none')
             map.setLayoutProperty(layerId, 'visibility', 'none')
         }
-
     }, [map, show])
 
     return null
 }
 
-export default OCPSecurity;
+export default OCPBus;
