@@ -32,8 +32,8 @@ function OCPBus({ show }) {
                 onAdd: function (map, mbxContext) {
 
                     let options = {
-                        type: "fbx",
-                        obj: "vehicles/bus.fbx",
+                        type: "gltf",
+                        obj: "vehicles/Bus.gltf",
                         scale: 0.02,
                         units: "meters",
                         anchor: 'center',
