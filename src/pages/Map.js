@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import MapView from '../Components/MapView';
-import BuildingLayer from '../Components/MapView/BuildingLayer'
-import Controls from '../Components/MapView/Control';
-import OCPBuilding from '../Components/MapView/OCPBuilding';
-import OCPBus from '../Components/MapView/OCPBus';
-import OCPSecurity from '../Components/MapView/OCPSecurity';
-import IndoorLayer from '../Components/MapView/IndoorLayer'
+import MapView from '../components/MapView';
+import BuildingLayer from '../components/MapView/BuildingLayer'
+import Controls from '../components/MapView/Control';
+import OCPBuilding from '../components/MapView/OCPBuilding';
+import OCPBus from '../components/MapView/OCPBus';
+import OCPSecurity from '../components/MapView/OCPSecurity';
+import IndoorLayer from '../components/MapView/IndoorLayer'
+import OCPFlame from '../components/MapView/OCPFlame';
 
 
 function Map() {
@@ -13,6 +14,7 @@ function Map() {
     const [showOCPBuilding, setShowOCPBuilding] = useState(true)
     const [showOCPBus, setShowOCPBus] = useState(true)
     const [showOCPSecurity, setShowOCPSecurity] = useState(true)
+    const [showFlame, setShowFlame] = useState(true)
 
     return (
         <div>
@@ -26,6 +28,7 @@ function Map() {
                 <OCPSecurity show={showOCPSecurity} />
                 <OCPBuilding show={showOCPBuilding} />
                 <OCPBus show={showOCPBus} />
+                {/* <OCPFlame show={showFlame} /> */}
                 <IndoorLayer />
             </MapView>
         </div>

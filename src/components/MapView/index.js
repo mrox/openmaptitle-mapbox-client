@@ -51,7 +51,7 @@ const Map = ({ children }) => {
 
 
     // Clean up on unmount
-    return () => newMap.remove();
+    // return () => newMap.remove();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const containerBounds = mapContainerRef.current?.getBoundingClientRect();

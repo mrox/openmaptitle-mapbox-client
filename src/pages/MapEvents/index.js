@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import MapView from '../../components/MapView';
-import Controls from './Controls';
+// import Controls from './Controls';
 
 
-function MapEditor() {
+function MapEvents() {
 
     return (
         <StyledContainer className='relative'>
             {/* <StyledMapView> */}
             <MapView />
-            <Controls />
+            {/* <Controls /> */}
             {/* </StyledMapView> */}
         </StyledContainer>
     );
@@ -22,4 +22,4 @@ const StyledContainer = styled.div`
     width: 100% ;
     height: 100% ;
 `
-export default MapEditor;
+export default MapEvents;
